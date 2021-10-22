@@ -1,0 +1,50 @@
+.buttons {
+    display: grid;
+    grid-template-columns: 40px 40px 50px;
+    grid-template-rows: 30px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.on {
+    border: 1px solid black;
+    text-align: center;
+    width: 40px;
+    height: 25px;
+}
+
+.off {
+    margin-left: 1px;
+    border: 1px solid black;
+    text-align: center;
+    width: 40px;
+    height: 25px;
+}
+
+.light {
+    margin-left: 10px;
+    margin-top: 7px;
+    border: 1px solid black;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+
+}
+
+.on1, .light1 {
+    background-color: darkgreen;
+    color: white;
+}
+
+.off1 {
+    background-color: dimgray;
+}
+
+.off2, .light2 {
+    background-color: crimson;
+    color: white;
+}
+
+.on2 {
+    background-color: dimgray;
+}
