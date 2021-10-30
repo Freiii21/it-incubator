@@ -25,8 +25,8 @@ function App() {
             <Rating value={ratingValue} onClick={setRatingValue}/>
             <UncontrolledRating />
 
-            <OnOff state={onOffState} switch={setonOffState}/>
-            <UncontrolledOnOff/>
+            <UncontrolledOnOff onChange={setonOffState}/>{onOffState.toString()}
+            {/*<OnOff state={onOffState} switch={setonOffState}/>*/}
             {/*//new one*/}
         </div>
     );
