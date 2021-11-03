@@ -23,7 +23,7 @@ function App() {
             <UncontrolledAccordion title={"Menu2"}/>
 
             <Rating value={ratingValue} onClick={setRatingValue}/>
-            <UncontrolledRating/>
+            {/*<UncontrolledRating/>*/}
 
             <UncontrolledOnOff onChange={setonOffState}/>{onOffState.toString()}
             {/*<OnOff state={onOffState} switch={setonOffState}/>*/}
