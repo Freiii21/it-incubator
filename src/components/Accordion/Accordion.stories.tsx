@@ -4,7 +4,7 @@ import {action} from '@storybook/addon-actions';
 import { Story } from '@storybook/react';
 
 export default {
-    title: 'Accordion',
+    title: 'components/Accordion',
     component: Accordion,
 };
 
@@ -29,7 +29,13 @@ UserUncollapsedMode.args = {
     collapsed: false,
 }
 
-export const ModeChanging = () => {
+export const ModeChanging: Story<AccordionPropsType> = (args) => {
     const [value, setValue] = useState<boolean>(true)
-    return <Accordion title={"Users"} collapsed={value} onClick={() => setValue(!value)}/>
+
+    return <Accordion {...args} collapsed={value} onClick={() => setValue(!value)}/>
 }
+
+ModeChanging.args = {
+    title: "Users"
+}
+

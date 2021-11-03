@@ -8,12 +8,16 @@ export type AccordionPropsType = {
      * @param collapsed value of the title
      */
     onClick: (collapsed: boolean) => void
+    /**
+     * Color of header text
+     */
+    color?: string
 }
 
 export function Accordion (props: AccordionPropsType) {
     return (
         <div>
-            <AccordionTitle title={props.title} onClick={() => {props.onClick(!props.collapsed)}}/>
+            <AccordionTitle title={props.title} onClick={() => {props.onClick(!props.collapsed)}} color={props.color}/>
             { !props.collapsed  && <AccordionBody/> }
         </div>
     );
@@ -22,12 +26,14 @@ export function Accordion (props: AccordionPropsType) {
 type AccordionTitlePropsType = {
     title: string
     onClick: () => void
+    color?: string
 }
 
 function AccordionTitle(props: AccordionTitlePropsType) {
     return (
         <div>
-            <h3 onClick={(e) => props.onClick()}>{props.title}</h3>
+            <h3 style={{color: props.color ? props.color : 'black'}}
+                onClick={(e) => props.onClick()}>{props.title}</h3>
         </div>
     );
 }
