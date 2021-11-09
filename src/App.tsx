@@ -19,7 +19,7 @@ function App() {
 
     return (
         <div className={"App"}>
-            <Accordion title={"Menu1"} collapsed={accordionCollapsed} onClick={setAccordionCollapsed}/>
+            <Accordion titleValue={"Menu1"} collapsed={accordionCollapsed} onChange={setAccordionCollapsed}/>
             <UncontrolledAccordion title={"Menu2"}/>
 
             <Rating value={ratingValue} onClick={setRatingValue}/>
