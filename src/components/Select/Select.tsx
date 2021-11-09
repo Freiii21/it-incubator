@@ -1,4 +1,5 @@
 import React from 'react';
+import s from './Select.module.css'
 
 type ItemType = {
     title: string
@@ -15,15 +16,19 @@ export const Select: React.FC<SelectPropsType> = (props) => {
     const selectedValue = props.items.find(i => i.value === props.value)
 
     return (
-        <div>
+        <>
             <select>
                 <option value="1">Australia</option>
                 <option value="2">Canada</option>
                 <option value="3">Usa</option>
                 <option value="4">Japan</option>
             </select>
-            <h3>{selectedValue && selectedValue.title}</h3>
-            {props.items.map(i => <div key={i.value}>{i.title}</div>)}
-        </div>
+            <div className={s.select}>
+                <h3>{selectedValue && selectedValue.title}</h3>
+                <div className={s.items}>
+                    {props.items.map(i => <div key={i.value}>{i.title}</div>)}
+                </div>
+            </div>
+        </>
     )
 }
