@@ -9,11 +9,25 @@ export default {
 
 const Template: Story<SelectPropsType> = (args) => <Select {...args}/>
 
-const callback = action("function instead of the real function")
+export const WithValue = Template.bind({})
+WithValue.args = {
+    value: "2",
+    onChange: action("Value changed"), //we use "action" instead of the real function from the component's props.
+    items: [
+        {title:"Australia",value:"1"},
+        {title:"Canada",value:"2"},
+        {title:"USA",value:"3"},
+        {title:"Japan",value:"4"}
+    ]
+}
 
-export const SelectValue = Template.bind({})
-SelectValue.args = {
-    value: "some value",
-    onChange: callback,
-    items: [{title:"Australia",value:1}, {title:"Canada",value:2}, {title:"USA",value:3},{title:"Japan",value:4}]
+export const WithoutValue = Template.bind({})
+WithoutValue.args = {
+    onChange: action("Value changed"), //we use "action" instead of the real function from the component's props.
+    items: [
+        {title:"Australia",value:1},
+        {title:"Canada",value:2},
+        {title:"USA",value:3},
+        {title:"Japan",value:4}
+    ]
 }
