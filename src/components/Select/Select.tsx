@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import s from './Select.module.css'
 
 type ItemType = {
@@ -13,21 +13,25 @@ export type SelectPropsType = {
 }
 
 export const Select: React.FC<SelectPropsType> = (props) => {
+    const [active, setActive] = useState(false)
+
     const selectedValue = props.items.find(i => i.value === props.value)
+    const toggleItems = () => setActive(!active)
 
     return (
         <>
-            <select>
-                <option value="1">Australia</option>
-                <option value="2">Canada</option>
-                <option value="3">Usa</option>
-                <option value="4">Japan</option>
-            </select>
             <div className={s.select}>
-                <h3>{selectedValue && selectedValue.title}</h3>
-                <div className={s.items}>
-                    {props.items.map(i => <div key={i.value}>{i.title}</div>)}
-                </div>
+                <span className={s.main} onClick={toggleItems}>{selectedValue && selectedValue.title}</span>
+                {
+                    active &&
+                    <div className={s.items}>
+                        {props.items.map(i => <div
+                            key={i.value}
+                            onClick={() => {props.onChange(i.value)}}
+                        >{i.title}
+                        </div>)}
+                    </div>
+                }
             </div>
         </>
     )
