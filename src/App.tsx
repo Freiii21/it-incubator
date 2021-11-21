@@ -19,13 +19,13 @@ function App() {
 
     return (
         <div className={"App"}>
-            <Accordion titleValue={"Menu1"} collapsed={accordionCollapsed} onChange={setAccordionCollapsed}/>
+            {/*<Accordion titleValue={"Menu1"} collapsed={accordionCollapsed} onChange={setAccordionCollapsed} items={}/>*/}
             <UncontrolledAccordion title={"Menu2"}/>
 
-            <Rating value={ratingValue} onClick={setRatingValue}/>
-            {/*<UncontrolledRating/>*/}
+            {/*<Rating value={ratingValue} onClick={setRatingValue}/>*/}
+            {/*/!*<UncontrolledRating/>*!/*/}
 
-            <UncontrolledOnOff onChange={setonOffState}/>{onOffState.toString()}
+            {/*<UncontrolledOnOff onChange={setonOffState}/>{onOffState.toString()}*/}
             {/*<OnOff state={onOffState} switch={setonOffState}/>*/}
             {/*//new one*/}
         </div>
