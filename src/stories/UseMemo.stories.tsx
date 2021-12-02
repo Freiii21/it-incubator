@@ -13,9 +13,9 @@ export const DifficultCountingExample = () => {
 
     resultA = useMemo(() => {
         let tempResultA = 1;
-        for(let i = 1; i<=a; i++){
+        for (let i = 1; i <= a; i++) {
             let fake = 0;
-            while(fake < 100000000){
+            while (fake < 100000000) {
                 fake++;
                 const fakeValue = Math.random();
             }
@@ -24,7 +24,7 @@ export const DifficultCountingExample = () => {
         return tempResultA;
     }, [a])
 
-    for(let i = 1; i<=b; i++){
+    for (let i = 1; i <= b; i++) {
         resultB *= i;
     }
 
@@ -41,26 +41,36 @@ export const DifficultCountingExample = () => {
     </>
 }
 
-export const HelpForReactMemoExample = () => {
-    const [a, setA] = useState<number>(5)
-    const [b, setB] = useState<number>(5)
+const UsersSecret = (props: { users: Array<string> }) => {
+    console.log('USERS_SECRET')
+    return (
+        <div>
+            {props.users.map((u, i) => <div key={i}>{u}</div>)}
+        </div>
+    )
+}
+const Users = React.memo(UsersSecret)
 
-    let resultA = 1;
-    let resultB = 1;
+export const HelpsToReactMemo = () => {
+    const [counter, setCounter] = useState(0);
+    const [users, setUsers] = useState(['Dimych', 'Valera', 'Artem']);
 
-    resultA = useMemo(() => {
-        let tempResultA = 1;
-        for(let i = 1; i<=a; i++){
-            let fake = 0;
-            while(fake < 100000000){
-                fake++;
-                const fakeValue = Math.random();
-            }
-            tempResultA *= i;
-        }
-        return tempResultA;
-    }, [a])
+    const newArray = useMemo(() => {
+        return users.filter(u => u.toLowerCase().indexOf('a') > -1);
+    },[users])
 
-    for(let i = 1; i<=b; i++){
-        resultB *= i;
+    const addUser = () => {
+        const newUsers = [...users, 'Sveta' + new Date().getTime()]
+        setUsers(newUsers);
     }
+
+    return (
+        <div>
+            <button onClick={() => {setCounter(counter + 1)}}>+</button>
+            <button onClick={() => addUser()}>add user</button>
+            {counter}
+            <Users users={newArray}/>
+        </div>
+    )
+}
+
